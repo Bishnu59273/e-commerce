@@ -48,7 +48,7 @@ getProducts();
                   {{ card.description }}
                 </p>
                 <NuxtLink
-                  :to="`/products/${index + 1}`"
+                  :to="`/products/${card.id}`"
                   class="btn btn-success mt-3"
                 >
                   Buy now
