@@ -9,7 +9,7 @@ useHead({
   //     },
   //     {
   //       property: "og:site_name",
-  //       content: "Bishnu saha",
+  //       content: "Bishnu",
   //     },
   //     {
   //       property: "og:description",
@@ -28,7 +28,7 @@ async function getProducts() {
   try {
     isLoading.value = true;
     const response = await axios.get(
-      "https://api.escuelajs.co/api/v1/products?offset=0&limit=09"
+      "https://fakestoreapi.com/products?offset=0&limit=09"
     );
     cards.value = response.data;
   } catch (error) {
@@ -155,7 +155,7 @@ getProducts();
               >
                 <div class="card h-100">
                   <img
-                    :src="card.images"
+                    :src="card.image"
                     style="width: auto; height: 380px"
                     class="card-img-top product_img"
                     alt="..."

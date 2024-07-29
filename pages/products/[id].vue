@@ -12,9 +12,7 @@ const isLoading = ref(false);
 async function getProducts() {
   try {
     isLoading.value = true;
-    const response = await axios.get(
-      "https://api.escuelajs.co/api/v1/products"
-    );
+    const response = await axios.get("https://fakestoreapi.com/products");
     details.value = response.data;
     if (Array.isArray(details.value)) {
       found.value = details.value.find((iitem) => iitem.id == id.id);
@@ -34,8 +32,8 @@ if (typeof localStorage !== "undefined") {
 const cartItems = ref(storedCartItems || []);
 const total = ref(storedTotal || 0);
 
-const addItemToCart = (title, images, price) => {
-  const item = { title, images, price };
+const addItemToCart = (title, image, price) => {
+  const item = { title, image, price };
   cartItems.value.push(item);
   total.value += price;
   // Update local storage
@@ -148,7 +146,7 @@ getProducts();
                 <div id="img-zoomer-box">
                   <img
                     id="img-1"
-                    :src="found.images"
+                    :src="found.image"
                     alt="Zoom Image on Mouseover"
                     class="img-fluid demo-trigger"
                   />
@@ -187,7 +185,7 @@ getProducts();
                 <button
                   type="button"
                   class="btn btn-success add-to-cart"
-                  @click="addItemToCart(found.title, found.images, found.price)"
+                  @click="addItemToCart(found.title, found.image, found.price)"
                 >
                   Add to Cart
                 </button>
@@ -227,7 +225,7 @@ getProducts();
                 <li v-for="(item, index) in cartItems" :key="index">
                   <div class="CartHeader">
                     <img
-                      :src="item.images"
+                      :src="item.image"
                       alt="..."
                       class="img-fluid demo-trigger"
                     />

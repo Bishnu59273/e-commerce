@@ -8,9 +8,7 @@ const isLoading = ref(false);
 async function getProducts() {
   try {
     isLoading.value = true;
-    const response = await axios.get(
-      "https://api.escuelajs.co/api/v1/products"
-    );
+    const response = await axios.get("https://fakestoreapi.com/products");
     cards.value = response.data;
   } catch (error) {
     console.error(error);
@@ -35,7 +33,7 @@ getProducts();
           >
             <div class="card h-100">
               <img
-                :src="card.images"
+                :src="card.image"
                 style="width: auto; height: 380px; object-fit: contain"
                 class="card-img-top"
                 alt="..."
