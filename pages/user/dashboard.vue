@@ -1,18 +1,3 @@
-<template>
-  <div>
-    <NuxtLayout name="footer">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <h1>this is dashboard</h1>
-            <h3>Welcome,{{ userName }}</h3>
-            <h5>email: {{ userEmail }}</h5>
-          </div>
-        </div>
-      </div>
-    </NuxtLayout>
-  </div>
-</template>
 <script setup>
 import axios from "axios";
 import { useRouter } from "vue-router";
@@ -59,3 +44,18 @@ onMounted(() => {
   fetchUserProfile();
 });
 </script>
+<template>
+  <div>
+    <NuxtLayout name="footer">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <h1>this is dashboard</h1>
+            <h3>Welcome,{{ userName }}</h3>
+            <h5>email: {{ userEmail }}</h5>
+          </div>
+        </div>
+      </div>
+    </NuxtLayout>
+  </div>
+</template>
